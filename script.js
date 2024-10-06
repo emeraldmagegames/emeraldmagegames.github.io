@@ -45,14 +45,10 @@ window.onload = function() {
 
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-            // Stronger gravity: Stars move faster towards the mouse if close (within 100px)
+            // When the stars are within 100px, pull them directly to the cursor
             if (distance < 100) {
-                const angle = Math.atan2(deltaY, deltaX);
-                const moveX = Math.cos(angle) * 15; // Increase the speed of movement
-                const moveY = Math.sin(angle) * 15;
-
-                // Apply gravity with increased speed when the mouse is near
-                star.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                // Move the star directly to the cursor's position
+                star.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
             } else {
                 // Allow the stars to drift back smoothly thanks to the CSS transition
                 star.style.transform = ''; // Reset to original position with smooth transition
