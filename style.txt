@@ -1,0 +1,23 @@
+/* Basic styling for the body */
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black; /* Dark background to contrast stars */
+}
+
+/* Container for the star field */
+#star-field {
+    position: relative;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+}
+
+/* Star styling */
+.star {
+    position: absolute;
+    width: 3px; /* Size of the stars */
+    height: 3px;
+    background-color: white;
+    border-radius: 50%; /* Circular stars */
+    opacity: 0.8; /* Slight transparency */
+}
