@@ -18,9 +18,9 @@ body {
     background-color: white;
     border-radius: 50%;
     opacity: 0.8;
-    
-    /* Animation for blinking, default state is no animation */
-    animation: none;
+
+    /* Add transition for smooth movement */
+    transition: transform 1.5s ease-out; /* Smoothly return to position over 1.5 seconds */
 }
 
 /* Blinking animation */
