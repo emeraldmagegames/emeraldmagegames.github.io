@@ -18,57 +18,30 @@ body {
     background-color: white;
     border-radius: 50%; /* Makes the stars circular */
     opacity: 0.8; /* Makes the stars slightly transparent */
-
-    /* Add a default animation (overwritten with random values in JavaScript) */
+    
+    /* Add a default animation (bobbing effect) */
     animation: bobbing 5s ease-in-out infinite;
+    
+    /* Define default transform variables for the bobbing effect */
+    --translateX: 0px;
+    --translateY: 0px;
+
+    /* Apply bobbing movement using custom properties */
+    transform: translate(var(--translateX), var(--translateY));
 }
 
 /* Bobbing animation keyframes */
 @keyframes bobbing {
     0% {
-        transform: translate(0px, 0px); /* Initial position */
+        --translateX: 0px;
+        --translateY: 0px;
     }
     50% {
-        transform: translate(3px, -3px); /* Move in random directions */
+        --translateX: 2px;
+        --translateY: -2px;
     }
     100% {
-        transform: translate(0px, 0px); /* Return to original position */
-    }
-}
-/* Basic styling for the body */
-body {
-    margin: 0;
-    overflow: hidden;
-    background-color: black; /* Sets the background color to black for contrast */
-}
-
-/* Container for the star field */
-#star-field {
-    position: relative;
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
-}
-
-/* Star styling */
-.star {
-    position: absolute; /* Allows precise positioning on the screen */
-    background-color: white;
-    border-radius: 50%; /* Makes the stars circular */
-    opacity: 0.8; /* Makes the stars slightly transparent */
-
-    /* Add a default animation (overwritten with random values in JavaScript) */
-    animation: bobbing 5s ease-in-out infinite;
-}
-
-/* Bobbing animation keyframes */
-@keyframes bobbing {
-    0% {
-        transform: translate(0px, 0px); /* Initial position */
-    }
-    50% {
-        transform: translate(3px, -3px); /* Move in random directions */
-    }
-    100% {
-        transform: translate(0px, 0px); /* Return to original position */
+        --translateX: 0px;
+        --translateY: 0px;
     }
 }
