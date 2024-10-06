@@ -26,7 +26,7 @@ document.addEventListener('mousemove', (e) => {
         const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
         // Apply "gravity" effect if the star is within a certain distance of the cursor
-        if (distance < 150) {
+        if (distance < 50) {
             const angle = Math.atan2(deltaY, deltaX);
             const moveX = Math.cos(angle) * 5; // Speed of movement
             const moveY = Math.sin(angle) * 5;
