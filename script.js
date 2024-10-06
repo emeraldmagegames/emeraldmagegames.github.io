@@ -48,8 +48,8 @@ window.onload = function() {
             // Stronger gravity: Stars move faster towards the mouse if close (within 100px)
             if (distance < 100) {
                 const angle = Math.atan2(deltaY, deltaX);
-                const moveX = Math.cos(angle) * 10; // Increase the speed of movement
-                const moveY = Math.sin(angle) * 10;
+                const moveX = Math.cos(angle) * 15; // Increase the speed of movement
+                const moveY = Math.sin(angle) * 15;
 
                 // Apply gravity with increased speed when the mouse is near
                 star.style.transform = `translate(${moveX}px, ${moveY}px)`;
