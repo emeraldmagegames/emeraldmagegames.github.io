@@ -2,46 +2,33 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: black; /* Sets the background color to black for contrast */
+    background-color: black;
 }
 
 /* Container for the star field */
 #star-field {
     position: relative;
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
+    width: 100vw;
+    height: 100vh;
 }
 
 /* Star styling */
 .star {
-    position: absolute; /* Allows precise positioning on the screen */
+    position: absolute;
     background-color: white;
-    border-radius: 50%; /* Makes the stars circular */
-    opacity: 0.8; /* Makes the stars slightly transparent */
+    border-radius: 50%;
+    opacity: 0.8;
     
-    /* Add a default animation (bobbing effect) */
-    animation: bobbing 5s ease-in-out infinite;
-    
-    /* Define default transform variables for the bobbing effect */
-    --translateX: 0px;
-    --translateY: 0px;
-
-    /* Apply bobbing movement using custom properties */
-    transform: translate(var(--translateX), var(--translateY));
+    /* Animation for blinking, default state is no animation */
+    animation: none;
 }
 
-/* Bobbing animation keyframes */
-@keyframes bobbing {
-    0% {
-        --translateX: 0px;
-        --translateY: 0px;
+/* Blinking animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.8; /* Normal state */
     }
     50% {
-        --translateX: 2px;
-        --translateY: -2px;
-    }
-    100% {
-        --translateX: 0px;
-        --translateY: 0px;
+        opacity: 0; /* Invisible state */
     }
 }
