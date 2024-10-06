@@ -29,50 +29,10 @@ window.onload = function() {
 
         // Append the star to the star-field container
         starField.appendChild(star);
-
-        // Make each star blink with less frequent chance to change color or sparkle
-        setInterval(() => {
-            const chance = Math.random(); // Generates a random number between 0 and 1
-
-            if (chance < 0.3) { // Less frequent chance to blink or sparkle (30%)
-                // 50% chance for fade out, color change, or sparkle
-                const eventChance = Math.random(); // Generate another random number
-                if (eventChance < 0.5) {
-                    // Fade out (normal blink)
-                    star.style.animation = `blink 1s ease-in-out 1`;
-                } else if (eventChance < 0.75) {
-                    // Change to a pale color (red, yellow, or blue) for 1 second, then revert
-                    const paleBlinkColors = ['#ffd1d1', '#ffffe0', '#d1e7ff']; // Pale red, pale yellow, pale blue
-                    const randomBlinkColor = paleBlinkColors[Math.floor(Math.random() * paleBlinkColors.length)];
-
-                    // Change the star's color to the random blink color
-                    star.style.backgroundColor = randomBlinkColor;
-                    star.style.animation = 'none'; // Disable the blink animation
-
-                    // After 1 second (same duration as blink), revert to the original color
-                    setTimeout(() => {
-                        star.style.backgroundColor = originalColor; // Revert back to the original color
-                    }, 1000); // 1 second = 1000 milliseconds
-                } else {
-                    // Sparkle effect (lines through the star)
-                    star.classList.add('sparkle'); // Add sparkle class to trigger the sparkle
-
-                    // Remove the sparkle effect after 1 second
-                    setTimeout(() => {
-                        star.classList.remove('sparkle');
-                    }, 1000); // 1 second = 1000 milliseconds
-                }
-            } else {
-                star.style.animation = 'none'; // Reset to no animation
-            }
-        }, Math.random() * 3000 + 5000); // Random interval between 5-8 seconds
     }
 
-    // Track mouse movement for gravity
-    document.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-
+    // Function to update the star positions based on cursor or touch position
+    function updateStarPositions(mouseX, mouseY) {
         const stars = document.querySelectorAll('.star'); // Get all the stars
         stars.forEach(star => {
             const starX = star.offsetLeft + star.clientWidth / 2;
@@ -83,7 +43,7 @@ window.onload = function() {
 
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-            // When the stars are within 100px, pull them directly to the cursor
+            // When the stars are within 100px, pull them directly to the cursor/touch
             if (distance < 100) {
                 // Move the star directly to the cursor's position
                 star.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
@@ -92,5 +52,20 @@ window.onload = function() {
                 star.style.transform = ''; // Reset to original position with smooth transition
             }
         });
+    }
+
+    // Track mouse movement for gravity
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        updateStarPositions(mouseX, mouseY); // Update stars based on mouse movement
+    });
+
+    // Track touch movement for gravity (simulating mouse movement)
+    document.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0]; // Get the first touch point
+        const touchX = touch.clientX; // Get the touch X position
+        const touchY = touch.clientY; // Get the touch Y position
+        updateStarPositions(touchX, touchY); // Update stars based on touch movement
     });
 }
