@@ -1,6 +1,6 @@
 window.onload = function() {
     const starField = document.getElementById('star-field'); // Get the star-field container
-    const numberOfStars = 400; // Define how many stars you want
+    const numberOfStars = 100; // Define how many stars you want
 
     // Generate stars and position them randomly
     for (let i = 0; i < numberOfStars; i++) {
@@ -16,14 +16,21 @@ window.onload = function() {
         star.style.left = Math.random() * window.innerWidth + 'px';
         star.style.top = Math.random() * window.innerHeight + 'px';
 
-        // Randomize animation duration (between 4 and 10 seconds for variation)
-        const duration = Math.random() * 6 + 4; // Generates a number between 4s and 10s
-        star.style.animationDuration = `${duration}s`;
+        // Append the star to the star-field container
+        starField.appendChild(star);
 
-        starField.appendChild(star); // Append the star to the star-field container
+        // Make each star blink randomly every 3 seconds
+        setInterval(() => {
+            const chance = Math.random(); // Generates a random number between 0 and 1
+            if (chance < 0.1) { // 1 in 10 chance to blink
+                star.style.animation = `blink 1s ease-in-out 1`; // Blink animation lasts 1 second
+            } else {
+                star.style.animation = `none`; // Reset to no animation
+            }
+        }, Math.random() * 3000 + 3000); // Random interval between 3-6 seconds
     }
 
-    // Track mouse movement
+    // Track mouse movement for gravity
     document.addEventListener('mousemove', (e) => {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
@@ -38,16 +45,15 @@ window.onload = function() {
 
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
+            // Stronger gravity: Stars move faster towards the mouse if close (within 100px)
             if (distance < 100) {
                 const angle = Math.atan2(deltaY, deltaX);
-                const moveX = Math.cos(angle) * 5;
-                const moveY = Math.sin(angle) * 5;
+                const moveX = Math.cos(angle) * 10; // Increase the speed of movement
+                const moveY = Math.sin(angle) * 10;
 
-                // Combine the gravity transform with the existing bobbing animation
-                star.style.transform = `translate(var(--translateX), var(--translateY)) translate(${moveX}px, ${moveY}px)`;
+                star.style.transform = `translate(${moveX}px, ${moveY}px)`;
             } else {
-                // Only apply the bobbing effect when the cursor is far away
-                star.style.transform = `translate(var(--translateX), var(--translateY))`;
+                star.style.transform = ''; // Reset position when far away from the cursor
             }
         });
     });
