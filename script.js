@@ -1,6 +1,6 @@
 window.onload = function() {
     const starField = document.getElementById('star-field'); // Get the star-field container
-    const numberOfStars = 400; // Define how many stars you want
+    const numberOfStars = 500; // Define how many stars you want
 
     // Generate stars and position them randomly
     for (let i = 0; i < numberOfStars; i++) {
@@ -30,20 +30,20 @@ window.onload = function() {
         // Append the star to the star-field container
         starField.appendChild(star);
 
-        // Make each star blink with 50% chance to change color instead of fading out
+        // Make each star blink with less frequent chance to change color or sparkle
         setInterval(() => {
             const chance = Math.random(); // Generates a random number between 0 and 1
 
-            if (chance < 0.1) { // 1 in 10 chance to blink
-                // 50% chance for fade out or color change
-                const blinkChance = Math.random(); // Generate another random number
-                if (blinkChance < 0.5) {
+            if (chance < 0.05) { // Less frequent chance to blink or sparkle (5%)
+                // 50% chance for fade out, color change, or sparkle
+                const eventChance = Math.random(); // Generate another random number
+                if (eventChance < 0.5) {
                     // Fade out (normal blink)
                     star.style.animation = `blink 1s ease-in-out 1`;
-                } else {
-                    // Change to a random color (red, yellow, or blue) for 1 second, then revert
-                    const blinkColors = ['#ff0000', '#ffff00', '#0000ff']; // Red, yellow, blue
-                    const randomBlinkColor = blinkColors[Math.floor(Math.random() * blinkColors.length)];
+                } else if (eventChance < 0.75) {
+                    // Change to a pale color (red, yellow, or blue) for 1 second, then revert
+                    const paleBlinkColors = ['#ffd1d1', '#ffffe0', '#d1e7ff']; // Pale red, pale yellow, pale blue
+                    const randomBlinkColor = paleBlinkColors[Math.floor(Math.random() * paleBlinkColors.length)];
 
                     // Change the star's color to the random blink color
                     star.style.backgroundColor = randomBlinkColor;
@@ -53,11 +53,19 @@ window.onload = function() {
                     setTimeout(() => {
                         star.style.backgroundColor = originalColor; // Revert back to the original color
                     }, 1000); // 1 second = 1000 milliseconds
+                } else {
+                    // Sparkle effect (lines through the star)
+                    star.classList.add('sparkle'); // Add sparkle class to trigger the sparkle
+
+                    // Remove the sparkle effect after 1 second
+                    setTimeout(() => {
+                        star.classList.remove('sparkle');
+                    }, 1000); // 1 second = 1000 milliseconds
                 }
             } else {
                 star.style.animation = 'none'; // Reset to no animation
             }
-        }, Math.random() * 3000 + 3000); // Random interval between 3-6 seconds
+        }, Math.random() * 3000 + 5000); // Random interval between 5-8 seconds
     }
 
     // Track mouse movement for gravity
