@@ -6,18 +6,21 @@ window.onload = function() {
     for (let i = 0; i < numberOfStars; i++) {
         const star = document.createElement('div'); // Create a new div for each star
         star.classList.add('star'); // Add the 'star' class to each new div
-        
+
         // Randomize size between 1px and 3px
         const size = Math.random() * 2 + 1; // Generates a number between 1 and 3
         star.style.width = `${size}px`;
         star.style.height = `${size}px`;
-        
+
         // Random horizontal and vertical position
         star.style.left = Math.random() * window.innerWidth + 'px';
         star.style.top = Math.random() * window.innerHeight + 'px';
-        
-        // Add the star to the star-field container
-        starField.appendChild(star);
+
+        // Randomize animation duration (between 4 and 10 seconds for variation)
+        const duration = Math.random() * 6 + 4; // Generates a number between 4s and 10s
+        star.style.animationDuration = `${duration}s`;
+
+        starField.appendChild(star); // Append the star to the star-field container
     }
 
     // Track mouse movement
@@ -35,14 +38,16 @@ window.onload = function() {
 
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-            if (distance < 50) {
+            if (distance < 100) {
                 const angle = Math.atan2(deltaY, deltaX);
                 const moveX = Math.cos(angle) * 5;
                 const moveY = Math.sin(angle) * 5;
 
-                star.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                // Combine the gravity transform with the existing bobbing animation
+                star.style.transform = `translate(var(--translateX), var(--translateY)) translate(${moveX}px, ${moveY}px)`;
             } else {
-                star.style.transform = ''; // Reset position when far away from the cursor
+                // Only apply the bobbing effect when the cursor is far away
+                star.style.transform = `translate(var(--translateX), var(--translateY))`;
             }
         });
     });
