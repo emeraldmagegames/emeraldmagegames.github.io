@@ -1,9 +1,14 @@
 /* Basic styling for the body */
+
 body {
     margin: 0;
     overflow: hidden;
-    background-color: black;
+    background-image: url('background.png'); 
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
 }
+
 
 /* Container for the star field */
 #star-field {
