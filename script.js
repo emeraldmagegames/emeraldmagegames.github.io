@@ -34,7 +34,7 @@ window.onload = function() {
         setInterval(() => {
             const chance = Math.random(); // Generates a random number between 0 and 1
 
-            if (chance < 0.15) { // Less frequent chance to blink or sparkle (5%)
+            if (chance < 0.3) { // Less frequent chance to blink or sparkle (30%)
                 // 50% chance for fade out, color change, or sparkle
                 const eventChance = Math.random(); // Generate another random number
                 if (eventChance < 0.5) {
