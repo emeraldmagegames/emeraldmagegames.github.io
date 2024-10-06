@@ -22,7 +22,7 @@ window.onload = function() {
         // Make each star blink randomly every 3 seconds
         setInterval(() => {
             const chance = Math.random(); // Generates a random number between 0 and 1
-            if (chance < 0.1) { // 1 in 10 chance to blink
+            if (chance < 0.3) { // 3 in 10 chance to blink
                 star.style.animation = `blink 1s ease-in-out 1`; // Blink animation lasts 1 second
             } else {
                 star.style.animation = `none`; // Reset to no animation
