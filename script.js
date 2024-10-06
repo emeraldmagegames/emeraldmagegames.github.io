@@ -1,6 +1,6 @@
 window.onload = function() {
     const starField = document.getElementById('star-field'); // Get the star-field container
-    const numberOfStars = 400; // Define how many stars you want
+    const numberOfStars = 100; // Define how many stars you want
 
     // Generate stars and position them randomly
     for (let i = 0; i < numberOfStars; i++) {
@@ -22,7 +22,7 @@ window.onload = function() {
         // Make each star blink randomly every 3 seconds
         setInterval(() => {
             const chance = Math.random(); // Generates a random number between 0 and 1
-            if (chance < 0.3) { // 3 in 10 chance to blink
+            if (chance < 0.1) { // 1 in 10 chance to blink
                 star.style.animation = `blink 1s ease-in-out 1`; // Blink animation lasts 1 second
             } else {
                 star.style.animation = `none`; // Reset to no animation
@@ -51,9 +51,11 @@ window.onload = function() {
                 const moveX = Math.cos(angle) * 10; // Increase the speed of movement
                 const moveY = Math.sin(angle) * 10;
 
+                // Apply gravity with increased speed when the mouse is near
                 star.style.transform = `translate(${moveX}px, ${moveY}px)`;
             } else {
-                star.style.transform = ''; // Reset position when far away from the cursor
+                // Allow the stars to drift back smoothly thanks to the CSS transition
+                star.style.transform = ''; // Reset to original position with smooth transition
             }
         });
     });
