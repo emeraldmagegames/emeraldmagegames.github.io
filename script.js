@@ -1,6 +1,6 @@
 window.onload = function() {
     const starField = document.getElementById('star-field'); // Get the star-field container
-    const numberOfStars = 500; // Define how many stars you want
+    const numberOfStars = 100; // Define how many stars you want
 
     // Generate stars and position them randomly
     for (let i = 0; i < numberOfStars; i++) {
@@ -16,12 +16,15 @@ window.onload = function() {
         star.style.left = Math.random() * window.innerWidth + 'px';
         star.style.top = Math.random() * window.innerHeight + 'px';
 
+        // Store the original color of the star (white or a special color if every 10th star)
+        let originalColor = '#ffffff'; // Default is white
+
         // Make every 10th star a special color
         if (i % 10 === 0) {
             // Assign a random color from pale red, blue, or yellow
             const colors = ['#ffcccb', '#add8e6', '#ffffcc']; // Pale red, light blue, pale yellow
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            star.style.backgroundColor = randomColor;
+            originalColor = colors[Math.floor(Math.random() * colors.length)];
+            star.style.backgroundColor = originalColor;
         }
 
         // Append the star to the star-field container
@@ -38,11 +41,18 @@ window.onload = function() {
                     // Fade out (normal blink)
                     star.style.animation = `blink 1s ease-in-out 1`;
                 } else {
-                    // Change to a random color (red, yellow, or blue)
+                    // Change to a random color (red, yellow, or blue) for 1 second, then revert
                     const blinkColors = ['#ff0000', '#ffff00', '#0000ff']; // Red, yellow, blue
                     const randomBlinkColor = blinkColors[Math.floor(Math.random() * blinkColors.length)];
+
+                    // Change the star's color to the random blink color
                     star.style.backgroundColor = randomBlinkColor;
-                    star.style.animation = 'none'; // No fade, just color change
+                    star.style.animation = 'none'; // Disable the blink animation
+
+                    // After 1 second (same duration as blink), revert to the original color
+                    setTimeout(() => {
+                        star.style.backgroundColor = originalColor; // Revert back to the original color
+                    }, 1000); // 1 second = 1000 milliseconds
                 }
             } else {
                 star.style.animation = 'none'; // Reset to no animation
