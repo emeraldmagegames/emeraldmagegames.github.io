@@ -36,4 +36,15 @@ body {
     50% {
         opacity: 0; /* Invisible state */
     }
+    
+/* Ensure the logo is positioned over everything else */
+#logo {
+    position: absolute; /* Allows for positioning */
+    top: 20px; /* Adjust this value as needed for positioning */
+    left: 20px; /* Adjust this value as needed for positioning */
+    width: 100px; /* Adjust size of the logo */
+    z-index: 100; /* Ensure it's above the stars */
+    pointer-events: none; /* Prevents the logo from interfering with star clicks */
+}
+
 }
