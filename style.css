@@ -31,8 +31,8 @@ body {
     position: absolute; /* Allows you to place the logo anywhere */
     top: 20px; /* Adjust as needed */
     left: 20px; /* Adjust as needed */
-    width: 300px; /* Adjust the size as needed */
-    height: 300px; /* Maintain the aspect ratio */
+    width: 100px; /* Adjust the size as needed */
+    height: auto; /* Maintain the aspect ratio */
     z-index: 3; /* Ensure it's on top of the stars and content */
     cursor: pointer; /* Makes it clear that the logo is clickable */
 }
