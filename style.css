@@ -35,8 +35,11 @@ body {
     border-radius: 50%;
     opacity: 0.8;
 
+    /* Animation for blinking */
+    animation: blink 2s infinite ease-in-out; /* Apply blinking to each star */
+
     /* Add transition for smooth movement */
-    transition: transform 1.5s ease-out; /* Smoothly return to position over 1.5 seconds */
+    transition: transform 1.5s ease-out, background-color 0.5s ease-in-out; /* Smoothly return to position and allow color transition */
 }
 
 /* Blinking animation */
@@ -47,6 +50,7 @@ body {
     50% {
         opacity: 0; /* Invisible state */
     }
-    
+}
+
 
 }
