@@ -79,8 +79,8 @@ body {
 
 /* Logo styling */
 #logo {
-    width: 100px; /* Adjust the size of the logo */
-    height: auto; /* Maintain aspect ratio */
+    width: 50px; /* Adjust the size of the logo */
+    height: 50px; /* Maintain aspect ratio */
     z-index: 2; /* Logo on top of stars */
     position: absolute; /* Ensure it's positioned centrally */
     left: 50%;
