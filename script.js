@@ -1,6 +1,6 @@
 window.onload = function() {
     const starField = document.getElementById('star-field'); // Get the star-field container
-    const numberOfStars = 1200; // Define how many stars you want
+    const numberOfStars = 600; // Define how many stars you want
 
     // Generate stars and position them randomly
     for (let i = 0; i < numberOfStars; i++) {
