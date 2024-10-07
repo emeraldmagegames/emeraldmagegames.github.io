@@ -38,7 +38,7 @@ window.onload = function() {
     function setRandomBehavior(star, originalColor) {
         setInterval(() => {
             // Random chance for the star to perform an action
-            const randomAction = Math.floor(Math.random() * 4); // 0 = do nothing, 1 = blink, 2 = change color, 3 = sparkle
+            const randomAction = Math.floor(Math.random() * 10); // 0 = do nothing, 1 = blink, 2 = change color, 3 = sparkle
 
             switch(randomAction) {
                 case 1:
