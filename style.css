@@ -43,6 +43,7 @@ body {
     top: 20px; /* Adjust this value as needed for positioning */
     left: 20px; /* Adjust this value as needed for positioning */
     width: 100px; /* Adjust size of the logo */
+    height: auto; /* sets auto height to maintain ratio */
     z-index: 100; /* Ensure it's above the stars */
     pointer-events: none; /* Prevents the logo from interfering with star clicks */
 }
