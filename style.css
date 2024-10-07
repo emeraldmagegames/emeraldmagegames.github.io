@@ -1,5 +1,4 @@
 /* Basic styling for the body */
-
 body {
     margin: 0;
     overflow: hidden;
@@ -19,8 +18,6 @@ body {
     pointer-events: auto; /* Prevent the logo from interfering with star interactions */
 }
 
-
-
 /* Container for the star field */
 #star-field {
     position: relative;
@@ -35,11 +32,8 @@ body {
     border-radius: 50%;
     opacity: 0.8;
 
-    /* Animation for blinking */
-    animation: blink 2s infinite ease-in-out; /* Apply blinking to each star */
-
     /* Add transition for smooth movement */
-    transition: transform 1.5s ease-out, background-color 0.5s ease-in-out; /* Smoothly return to position and allow color transition */
+    transition: transform 1.5s ease-out, background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 /* Blinking animation */
@@ -50,7 +44,4 @@ body {
     50% {
         opacity: 0; /* Invisible state */
     }
-}
-
-
 }
