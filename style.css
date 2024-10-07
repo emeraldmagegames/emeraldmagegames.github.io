@@ -37,15 +37,15 @@ body {
         opacity: 0; /* Invisible state */
     }
     
-/* Ensure the logo is positioned over everything else */
 #logo {
-    position: absolute; /* Allows for positioning */
-    top: 20px; /* Adjust this value as needed for positioning */
-    left: 20px; /* Adjust this value as needed for positioning */
-    width: 100px; /* Adjust size of the logo */
-    height: auto; /* sets auto height to maintain ratio */
+    position: absolute;
+    top: 50%; /* Position in the middle of the screen vertically */
+    left: 50%; /* Position in the middle of the screen horizontally */
+    width: 100px; /* Adjust logo size */
+    transform: translate(-50%, -50%); /* Shift logo to truly center */
     z-index: 100; /* Ensure it's above the stars */
-    pointer-events: none; /* Prevents the logo from interfering with star clicks */
+    pointer-events: none; /* Prevent the logo from interfering with star interactions */
 }
+
 
 }
