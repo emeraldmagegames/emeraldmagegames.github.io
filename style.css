@@ -13,7 +13,7 @@ body {
     position: absolute;
     top: 50%; /* Position in the middle of the screen vertically */
     left: 50%; /* Position in the middle of the screen horizontally */
-    width: 800px; /* Adjust logo size */
+    width: 700px; /* Adjust logo size */
     transform: translate(-50%, -50%); /* Shift logo to truly center */
     z-index: 100; /* Ensure it's above the stars */
     pointer-events: none; /* Prevent the logo from interfering with star interactions */
