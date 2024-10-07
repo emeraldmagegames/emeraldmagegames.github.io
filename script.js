@@ -40,4 +40,41 @@ window.onload = function() {
                 } else if (eventChance < 0.75) {
                     const paleBlinkColors = ['#ffd1d1', '#ffffe0', '#d1e7ff'];
                     const randomBlinkColor = paleBlinkColors[Math.floor(Math.random() * paleBlinkColors.length)];
-                    star.style.backgroundColor = randomBlinkC
+                    star.style.backgroundColor = randomBlinkColor;
+                    setTimeout(() => {
+                        star.style.backgroundColor = originalColor;
+                    }, 1000);
+                } else {
+                    star.classList.add('sparkle');
+                    setTimeout(() => {
+                        star.classList.remove('sparkle');
+                    }, 1000);
+                }
+            }
+        }, Math.random() * 3000 + 5000);
+    }
+
+    // Mouse and touch events
+    document.addEventListener('mousemove', (e) => updateStarPositions(e.clientX, e.clientY));
+    document.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        updateStarPositions(touch.clientX, touch.clientY);
+    });
+
+    // Update stars based on the position
+    function updateStarPositions(x, y) {
+        const stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            const starX = star.offsetLeft + star.clientWidth / 2;
+            const starY = star.offsetTop + star.clientHeight / 2;
+            const deltaX = x - starX;
+            const deltaY = y - starY;
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            if (distance < 100) {
+                star.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+            } else {
+                star.style.transform = ''; // Reset position
+            }
+        });
+    }
+};
