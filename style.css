@@ -1,5 +1,4 @@
 /* Basic styling for the body */
-
 body {
     margin: 0;
     overflow: hidden;
@@ -8,7 +7,6 @@ body {
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent the image from repeating */
 }
-
 
 /* Container for the star field */
 #star-field {
@@ -26,13 +24,16 @@ body {
 
     /* Add transition for smooth movement */
     transition: transform 1.5s ease-out; /* Smoothly return to position over 1.5 seconds */
+    animation: blink 2s infinite ease-in-out; /* Stars will blink */
 }
+
+/* Logo styling */
 #logo {
     position: absolute; /* Allows you to place the logo anywhere */
     top: 20px; /* Adjust as needed */
     left: 20px; /* Adjust as needed */
     width: 300px; /* Adjust the size as needed */
-    height: 300px; /* Maintain the aspect ratio */
+    height: auto; /* Maintain the aspect ratio */
     z-index: 3; /* Ensure it's on top of the stars and content */
     cursor: pointer; /* Makes it clear that the logo is clickable */
 }
