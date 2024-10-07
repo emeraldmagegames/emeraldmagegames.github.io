@@ -77,10 +77,10 @@ body {
 /* Logo styling */
 #logo {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 150px;
-    height: auto;
-    z-index: 2;
-    cursor: pointer;
+    top: 20px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+    width: 150px; /* Set a fixed width to prevent it from covering the screen */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 2; /* Ensure it sits above the stars */
+    cursor: pointer; /* Pointer to indicate it's clickable */
 }
