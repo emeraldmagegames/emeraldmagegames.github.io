@@ -44,7 +44,7 @@ window.onload = function() {
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
             // When the stars are within 100px, pull them directly to the cursor/touch
-            if (distance < 100) {
+            if (distance < 75) {
                 // Move the star directly to the cursor's position
                 star.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
             } else {
