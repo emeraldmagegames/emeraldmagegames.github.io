@@ -5,7 +5,7 @@ body {
     height: 100vh; /* Full screen height */
     width: 100vw;  /* Full screen width */
     overflow: hidden; /* No scrollbars */
-    background-image: url('background.png'); /* Replace with your background image */
+    background-image: url('path-to-your-background-image.jpg'); /* Replace with your background image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
