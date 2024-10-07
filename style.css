@@ -5,9 +5,6 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    display: flex;
-    justify-content: center; /* Center the logo horizontally */
-    align-items: center; /* Center the logo vertically */
     background-image: url('path-to-your-background-image.jpg'); /* Replace with your background image */
     background-size: cover;
     background-position: center;
@@ -82,8 +79,11 @@ body {
 
 /* Logo styling */
 #logo {
-    width: 150px; /* Set a fixed width to prevent it from covering the screen */
+    width: 200px; /* Fixed width to control the logo size */
     height: auto; /* Maintain aspect ratio */
-    cursor: pointer; /* Pointer to indicate it's clickable */
+    position: absolute; /* Absolute positioning */
+    bottom: 20px; /* Place it near the bottom of the screen */
+    right: 20px; /* Place it in the bottom-right corner */
     z-index: 2; /* Ensure it sits above the stars */
+    cursor: pointer; /* Pointer to indicate it's clickable */
 }
