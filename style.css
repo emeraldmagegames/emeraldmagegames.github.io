@@ -79,12 +79,20 @@ body {
 
 /* Logo styling */
 #logo {
-    width: 50px; /* Adjust the size of the logo */
-    height: 50px; /* Maintain aspect ratio */
+    width: 300px; /* Fixed default size for larger screens */
+    max-width: 90%; /* Allow resizing on smaller screens (responsive) */
+    height: auto; /* Maintain aspect ratio */
     z-index: 2; /* Logo on top of stars */
-    position: absolute; /* Ensure it's positioned centrally */
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); /* Center the logo */
     cursor: pointer; /* Pointer to indicate it's clickable */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    #logo {
+        width: 80%; /* Adjust the logo size to fit smaller screens */
+    }
 }
