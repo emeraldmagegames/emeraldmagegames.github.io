@@ -1,25 +1,20 @@
 /* Basic styling for the body */
+
 body {
     margin: 0;
-    padding: 0;
-    height: 100vh; /* Full screen height */
-    width: 100vw;  /* Full screen width */
-    overflow: hidden; /* No scrollbars */
-    background-image: url('background.png'); /* Updated to use background.png */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
+    background-image: url('background.png'); 
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
-/* Star field container */
+
+/* Container for the star field */
 #star-field {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100vw;
     height: 100vh;
-    z-index: 1; /* Stars above the background */
-    overflow: hidden;
 }
 
 /* Star styling */
@@ -28,5 +23,17 @@ body {
     background-color: white;
     border-radius: 50%;
     opacity: 0.8;
-    transition: transform 0.8s ease-out;
+
+    /* Add transition for smooth movement */
+    transition: transform 1.5s ease-out; /* Smoothly return to position over 1.5 seconds */
+}
+
+/* Blinking animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.8; /* Normal state */
+    }
+    50% {
+        opacity: 0; /* Invisible state */
+    }
 }
